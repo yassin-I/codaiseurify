@@ -1,8 +1,5 @@
-<h1>New Song</h1>
-
-<%= render "form" %>
-
 <%= form_for @song do |f| %>
+
   <%= f.label :music_genre %>
   <%= f.text_field :music_genre %>
 
@@ -12,5 +9,6 @@
   <%= f.label :image_url %>
   <%= f.text_field :image_url %>
 
-  <%= f.submit "Create" %>
+  <%= f.submit (@song.new_record? ? "Create" : "Update") %>
+
 <% end %>

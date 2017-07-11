@@ -1,4 +1,9 @@
 <h1><%= @song.music_genre %></h1>
 
-<p>Age: <%= @song.producer %></p>
+<p>producer: <%= @song.producer %></p>
 <%= image_tag @song.image_url %>
+
+<hr>
+
+<%= link_to "[Edit]", edit_song_path(@song.id) %>
+<%= link_to "[Delete]", song_path(@song.id), method: :delete, data: { confirm: "Are you sure?" } %>
