@@ -3,47 +3,29 @@ class SongsController < ApplicationController
    @songs = Song.all
   end
 
-  def new
-  @song = Song.new
-  end
-
-  def show
-  @song = Song.find(params[:id])
-  end
 
   def create
-  song_params = params.require(:song).permit(:music_genre, :producer, :image_url)
+    @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
 
-  @song = Song.new(song_params)
 
   if @song.save
-     redirect_to @song
+     redirect_to artist_path(params[:artist_id]), notice: "Song has been added to the list"
   else
-     render 'new'
+     render artists_path, notice: "Unsuccessful, please try add the song again."
   end
-  end
+end
 
-  def edit
-    @song = Song.find(params[:id])
-  end
 
-  def update
-  @song = Song.find(params[:id])
-
-  song_params = params.require(:song).permit(:music_genre, :producer, :image_url)
-
-  if @song.update_attributes(song_params)
-    redirect_to @song
-  else
-    render 'edit'
-  end
-  end
 
   def destroy
   @song = Song.find(params[:id])
+  @artist = @song.artist
+  @artist.songs.destroy(@song)
+  redirect_to artists_path(@song.artist_id)
 
-  @song.destroy
+  end
+  def song_params
+    params.require(:song).permit(:song_name, :artist)
 
-  redirect_to songs_path
-end
+  end
 end
