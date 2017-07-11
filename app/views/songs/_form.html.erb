@@ -1,4 +1,10 @@
 <%= form_for @song do |f| %>
+<ul>
+   <% @song.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+   <% end %>
+ </ul>
+
 
   <%= f.label :music_genre %>
   <%= f.text_field :music_genre %>
