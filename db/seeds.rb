@@ -1,14 +1,23 @@
 Song.delete_all
 Artist.delete_all
 
-artist1 = artist.create!(name: "weeknd",remote_image_url_url:"http://res.cloudinary.com/dsveomrqj/image/upload/v1499758032/weeknd_dufuym.jpg")
-artist2 = artist.create!(name: "bruno",remote_image_url_url:"http://res.cloudinary.com/dsveomrqj/image/upload/v1499758025/bruno_ufdubb.jpg")
-artist3 = artist.create!(name: "mj",remote_image_url_url:"http://res.cloudinary.com/dsveomrqj/image/upload/v1499758017/mj_nhrguf.jpg")
 
-artists_count = artist.all.length
-puts "#{artists_count} artists were created."
 
-Song.create!([
-song1 = Song.create!( { music_genre: "Hiphop", producer: "Djkhalid", remote_image_url_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499542093/DJkhalid_ndjhit.jpg" })
-song2 = Song.create!( { music_genre: "Dance", producer: "Tupac", remote_image_url_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499542099/2pac_so2cox.jpg"})
-song3 = Song.create!( { music_genre: "Rock", producer: "Ali", remote_image_url_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499542106/aliB_ugxosa.jpg"})
+# Artists
+weeknd = Artist.create! ( { name: "Weeknd", remote_image_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499758032/weeknd_dufuym.jpg" })
+bruno = Artist.create! ( { name: "Bruno", remote_image_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499758025/bruno_ufdubb.jpg"})
+mj = Artist.create! ( { name: "Mj", remote_image_url: "http://res.cloudinary.com/dsveomrqj/image/upload/v1499758017/mj_nhrguf.jpg" } )
+
+
+# Songs
+often = Song.create! ( { name: "Often", artist: weeknd } )
+feel = Song.create! ( { name: "I feel it coming", artist: weeknd } )
+secrets = Song.create! ( { name: "Secrets", artist: weeknd } )
+
+grenade = Song.create! ( { name: "Grenade", artist: bruno } )
+chunky = Song.create! ( { name: "Chunky", artist: bruno } )
+marry = Song.create! ( { name: "Marry", artist: bruno } )
+
+thriller = Song.create! ( { name: "Thriller", artist: mj } )
+bad = Song.create! ( { name: "Bad", artist: mj } )
+love = Song.create! ( { name: "Love", artist: mj } )

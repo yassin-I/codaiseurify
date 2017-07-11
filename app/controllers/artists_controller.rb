@@ -40,5 +40,8 @@ class ArtistsController < ApplicationController
    params.
    require(:artist).permit(:artist_name, :artist_image)
  end
+ def remote_image_url
+
+ end
 
 end

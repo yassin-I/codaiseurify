@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  resources :artists do
+  resources :songs, only: [:create, :destroy]
+  end
+
+  root "artists#index"
   resources :artists
-  root "songs#index"
-  resources :songs
+  resources :songs, except: [:create]
+
+  root  "songs#index"
+  end
 
     # get "songs" => "songs#index"
     # get 'songs/new' => "songs#new", as: :new_song
@@ -12,6 +19,3 @@ Rails.application.routes.draw do
     #
     # patch "songs/:id" => "songs#update"
     # delete "songs/:id" => "songs#destroy"
-
-
-end

@@ -7,6 +7,8 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+ruby '2.4.1'
 gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
@@ -36,6 +38,10 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'factory_girl_rails', '4.8.0'
+  gem 'faker', '1.7.3'
+  gem 'shoulda-matchers', '~> 3.1.1'
 end
 
 group :development do
@@ -49,5 +55,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave', '0.11.2'
-gem 'cloudinary', '1.2.3'
+gem 'carrierwave', '1.1.0'
+gem 'cloudinary', '1.8.1'
