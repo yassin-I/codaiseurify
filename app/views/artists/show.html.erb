@@ -6,9 +6,28 @@
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @artist.image_url %>
+  <strong>Image:</strong>
+
+  <%= image_tag(@artist.image) =%>
+
+  <div>
+    <h2>All songs from this artist</h2>
+  </div>
+  <%= link_to 'Edit', edit_artist_path(@artist) %>
 </p>
 
-<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<ul>
+
+  <hr/>
+  <% @songs.each do |song| %>
+  <li>
+    <%= song.name %> <%= link_to "Delete Song", song_path(song), method: :delete, data: { confirm: "Are you sure you about this? " } %>
+  </li>
+  <% end %>
+  <hr/>
+
+</ul>
+
+
+
 <%= link_to 'Back', artists_path %>

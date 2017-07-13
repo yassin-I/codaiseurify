@@ -3,14 +3,9 @@
 <%= render "form" %>
 
 <%= form_for @song do |f| %>
-  <%= f.label :music_genre %>
-  <%= f.text_field :music_genre %>
+  <%= f.label :song_name%>
+  <%= f.text_field :song_name %>
 
-  <%= f.label :producer %>
-  <%= f.number_field :producer %>
-
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-
+  
   <%= f.submit "Create" %>
 <% end %>

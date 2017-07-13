@@ -1,15 +1,12 @@
 class ArtistsController < ApplicationController
+
  def index
    @artists = Artist.all
  end
 
  def show
    @artist = Artist.find(params[:id])
-   @song = Song.new
- end
-
- def new
-   @artist = Artist.new
+   @songs = @artist.songs
  end
 
  def create
@@ -22,26 +19,13 @@ class ArtistsController < ApplicationController
      redirect_to artists_path
  end
 
- def edit
-   @artist = Artist.find(params[:id])
- end
 
- def update
-   @artist = Artist.find(params[:id])
-
-   if @artist.update_attributes(artist_params)
-     redirect_to @artist, notice: "Updated"
-   else
-     render 'edit'
-   end
- end
+ private
 
  def artist_params
    params.
-   require(:artist).permit(:artist_name, :artist_image)
+   require(:artist).permit(:name, :image)
  end
- def remote_image_url
 
- end
 
 end

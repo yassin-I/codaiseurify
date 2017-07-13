@@ -1,7 +1,8 @@
 class Artist < ApplicationRecord
-has_many :songs, dependent: :destroy
-mount_uploader :artist_image, ImageUploader
-validates :artist_name, presence: true
+has_many :songs
+has_many :photos
+mount_uploader :image, ImageUploader
+validates :name, presence: true
 
-validates :artist_image, presence: true
+validates :image, presence: true
 end

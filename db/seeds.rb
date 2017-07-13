@@ -1,5 +1,6 @@
 Song.delete_all
 Artist.delete_all
+Photo.delete_all
 
 
 
@@ -11,7 +12,7 @@ mj = Artist.create! ( { name: "Mj", remote_image_url: "http://res.cloudinary.com
 
 # Songs
 often = Song.create! ( { name: "Often", artist: weeknd } )
-feel = Song.create! ( { name: "I feel it coming", artist: weeknd } )
+feel = Song.create! ( { name: "Feel", artist: weeknd } )
 secrets = Song.create! ( { name: "Secrets", artist: weeknd } )
 
 grenade = Song.create! ( { name: "Grenade", artist: bruno } )

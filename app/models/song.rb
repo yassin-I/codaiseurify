@@ -1,8 +1,9 @@
 class Song < ApplicationRecord
- belongs_to :artist, dependent: :destroy
- 
+ belongs_to :artist
 
- validates :song_name, presence: true
+
+ validates :name, presence: true
+ validates :artist_id, presence: true
 
 
 end
