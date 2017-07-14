@@ -1,9 +1,11 @@
 <%= form_for [@artist, @song] do |f| %>
-  
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
 
-  <%= f.submit "Create" %>
+  <div class="actions">
+    <%= form.submit (@song.new_record? ? "Create" : "Update") %>
+  </div>
 
 <% end %>
