@@ -18,6 +18,11 @@ class ArtistsController < ApplicationController
    @artist.destroy
      redirect_to '/', notice: "destroyed"
  end
+ def update
+   @artist = Artist.find(params[:id])
+   @songs = @artist.songs
+
+ end
 
 
  private

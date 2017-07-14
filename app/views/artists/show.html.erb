@@ -23,6 +23,17 @@
     <%= song.name %> <%= link_to "Delete Song", song_path(song), method: :delete, data: { confirm: "Are you sure you about this? " } %>
   </li>
   <% end %>
+  <%= form_for [@song, @artist ] do |f| %>
+  <div class="form-group">
+    <label>Song</label>
+    <div class="form-group">
+  <label>Song name</label>
+  <%= f.text_field :name, placeholder: "Song_name", class: "form-control" %>
+</div>
+</div>
+
+<% end %>
+
   <hr/>
 
 </ul>
