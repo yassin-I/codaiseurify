@@ -18,7 +18,7 @@ def new
   end
 
 def destroy
-  @song = Song.find(params[:id])
+  @song = Song.find(params[:artist_id])
 
   if @song.destroy
     redirect_to @song.artist
